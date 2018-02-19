@@ -1,0 +1,10 @@
+<!--pages/invitation/invitation.wxml-->
+<view>
+  <text>尊敬的</text>
+  <text class='keyword'>{{guest}}</text>
+  <text>先生，这是一份婚礼邀请函。我们诚挚地邀请您于</text>
+  <text class='keyword'>几月几号（农历几月几号）几点</text>
+  <text>，在</text>
+  <text class='keyword'>哪个地方</text>
+  <text>，参加我们的婚礼。</text>
+</view>

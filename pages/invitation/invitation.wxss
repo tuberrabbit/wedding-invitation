@@ -1,0 +1,7 @@
+/* pages/invitation/invitation.wxss */
+
+.keyword {
+  font-size: 24px;
+  font-weight: 600;
+  color: red; /* 粉色系的婚庆红色*/
+}
