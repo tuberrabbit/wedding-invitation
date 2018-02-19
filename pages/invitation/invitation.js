@@ -1,4 +1,9 @@
 // pages/invitation/invitation.js
+const location = {
+  latitude: 30.078739166259766,
+  longitude: 120.71099853515625
+};
+
 Page({
 
   /**
@@ -7,6 +12,18 @@ Page({
   data: {
   },
 
+  navigateToWedding: function () {
+    wx.openLocation({
+      latitude: location.latitude,
+      longitude: location.longitude,
+      name: '婚礼现场',
+      address: '后双盆18号'
+    })
+  },
+
+  submitWishes: function (evt) {
+    console.log(evt.detail.value);
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -19,7 +36,6 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
   },
 
   /**

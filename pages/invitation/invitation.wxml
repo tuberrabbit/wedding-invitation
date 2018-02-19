@@ -8,3 +8,9 @@
   <text class='keyword'>哪个地方</text>
   <text>，参加我们的婚礼。</text>
 </view>
+<view>
+  <button bindtap='navigateToWedding'>一键导航</button>
+</view>
+<view>
+  <input placeholder='一句祝福语，带你上微信墙' confirm-type='ok' bindconfirm='submitWishes' />
+</view>
