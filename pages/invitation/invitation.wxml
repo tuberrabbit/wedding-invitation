@@ -8,6 +8,11 @@
   <text class='keyword'>哪个地方</text>
   <text>，参加我们的婚礼。</text>
 </view>
+<view wx:if='{{!isConfirmed}}'>
+  <text>确认来参加婚礼？</text>
+  <button size='mini' type='primary' bindtap='joinWedding' data-value='{{true}}'>能来</button>
+  <button size='mini' type='warn' bindtap='joinWedding' data-value='{{false}}'>不能来</button>
+</view>
 <view>
   <button bindtap='navigateToWedding'>一键导航</button>
 </view>
