@@ -1,10 +1,7 @@
 <!--index.wxml-->
 <view>
   <text>尊敬的：</text>
-  <input value='宾客' bindconfirm='confirm' />
-  <text>您好！</text>
-</view>
-<view>
-  <button type='warn'>确认</button>
+  <input value='{{guest}}' bindinput='updateGuest' />
+  <button type='warn' bindtap='confirm' disabled='{{!guest}}'>确认</button>
 </view>
 <view>提示：身份一经确认，不可更改。</view>
