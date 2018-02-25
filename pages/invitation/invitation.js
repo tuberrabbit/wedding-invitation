@@ -68,7 +68,9 @@ Page({
       url: `${host}/user/${openId}`,
       method: 'PATCH',
       data: {
-        isAccept: evt.target.dataset.value
+        user: {
+          isAccept: evt.target.dataset.value
+        }
       }
     });
   },
