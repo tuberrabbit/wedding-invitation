@@ -4,6 +4,9 @@ const location = {
   longitude: 120.71099853515625
 };
 
+const app = getApp();
+const { user, host } = app.globalData;
+
 Page({
 
   /**
@@ -26,9 +29,16 @@ Page({
   },
 
   joinWedding: function (evt) {
-    console.log(evt.target.dataset.value);
     this.setData({
-      isConfirmed: true
+      isAccept: evt.target.dataset.value
+    });
+    const { openId } = user;
+    wx.request({
+      url: `${host}/user/${openId}`,
+      method: 'PATCH',
+      data: {
+        isAccept: evt.target.dataset.value
+      }
     });
   },
   /**
@@ -36,9 +46,8 @@ Page({
    */
   onLoad: function (options) {
     const guest = options.query.guest;
-    // todo: 获取宾客是否确认参加婚礼的抉择
-    const isConfirmed = false;
-    this.setData({ guest, isConfirmed });
+    const { isAccept } = user;
+    this.setData({ guest, isAccept });
   },
 
   /**
