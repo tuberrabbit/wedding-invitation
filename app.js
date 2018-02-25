@@ -42,6 +42,7 @@ App({
     });
   },
   globalData: {
-    user: {}
+    user: {},
+    host: 'http://101.132.181.121:10080'
   }
 })

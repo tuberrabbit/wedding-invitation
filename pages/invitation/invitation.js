@@ -35,7 +35,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const guest = '宾客' || options.query.guest;
+    const guest = options.query.guest;
     // todo: 获取宾客是否确认参加婚礼的抉择
     const isConfirmed = false;
     this.setData({ guest, isConfirmed });
