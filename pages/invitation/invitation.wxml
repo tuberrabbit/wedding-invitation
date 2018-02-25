@@ -17,5 +17,5 @@
   <button bindtap='navigateToWedding'>一键导航</button>
 </view>
 <view>
-  <input placeholder='一句祝福语，带你上微信墙' confirm-type='ok' bindconfirm='submitWishes' />
+  <input value='{{wishes}}' placeholder='一句祝福语，带你上微信墙' bindinput='updateWishes' confirm-type='ok' bindconfirm='submitWishes' />
 </view>

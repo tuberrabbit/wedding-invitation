@@ -13,6 +13,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    wishes: ''
   },
 
   navigateToWedding: function () {
@@ -24,8 +25,38 @@ Page({
     })
   },
 
-  submitWishes: function (evt) {
-    console.log(evt.detail.value);
+  updateWishes: function (evt) {
+    this.setData({
+      wishes: evt.detail.value
+    });
+  },
+
+  submitWishes: function () {
+    const content = this.data.wishes;
+    if (!content) {
+      return;
+    }
+    const { openId } = user;
+    const that = this;
+    wx.request({
+      url: `${host}/wishes`,
+      method: 'POST',
+      data: { openId, content },
+      success: data => {
+        if (data.created) {
+          that.setData({
+            wishes: ''
+          });
+          wx.showToast({
+            title: '感谢你的祝福！',
+          });
+        } else {
+          wx.showToast({
+            title: '幸福来得太突然，请稍后重试。',
+          });
+        }
+      }
+    })
   },
 
   joinWedding: function (evt) {
