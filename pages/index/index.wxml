@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view>
   <text>尊敬的：</text>
-  <input value='宾客' bindconfirm='confirm'/>
+  <input value='宾客' bindconfirm='confirm' />
   <text>您好！</text>
 </view>
 <view>
