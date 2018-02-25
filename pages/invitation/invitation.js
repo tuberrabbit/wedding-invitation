@@ -5,7 +5,6 @@ const location = {
 };
 
 const app = getApp();
-const { user, host } = app.globalData;
 
 Page({
 
@@ -36,13 +35,17 @@ Page({
     if (!content) {
       return;
     }
-    const { openId } = user;
     const that = this;
+    const loginInfo = wx.getStorageSync('loginInfo');
+    const { host } = app.globalData;
     wx.request({
       url: `${host}/wishes`,
       method: 'POST',
+      header: {
+        authentication: loginInfo
+      },
       data: {
-        wishes: { openId, content }
+        wishes: { content }
       },
       success: res => {
         if (res.data.created) {
@@ -65,10 +68,14 @@ Page({
     this.setData({
       isAccept: evt.target.dataset.value
     });
-    const { openId } = user;
+    const loginInfo = wx.getStorageSync('loginInfo');
+    const { host } = app.globalData;
     wx.request({
-      url: `${host}/user/${openId}`,
+      url: `${host}/user`,
       method: 'PATCH',
+      header: {
+        authentication: loginInfo
+      },
       data: {
         user: {
           isAccept: evt.target.dataset.value
@@ -80,7 +87,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const guest = options.query.guest;
+    const guest = options.guest;
+    const { user } = app.globalData;
     const { isAccept } = user;
     this.setData({ guest, isAccept });
   },

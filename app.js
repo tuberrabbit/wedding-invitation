@@ -1,48 +1,49 @@
 //app.js
 App({
   onLaunch: function (opt) {
-    this.globalData.user.guest = opt.query.guest || '来宾朋友';
-  },
-  onShow: function (opt) {
-    const app = this;
-    wx.checkSession({
-      success: function () {
-        //session 未过期，并且在本生命周期一直有效
+    this.globalData.user.guest = opt.guest || '来宾朋友';
+    const that = this;
+    const { host } = that.globalData;
 
-      },
-      fail: function () {
-        wx.login({
-          success: res => {
-            if (res.code) {
-              wx.request({
-                url: 'http://101.132.181.121:10080/',
-                data: {
-                  code: res.code
-                },
-                success: res => {
-                  console.log(res.data);
-                },
-              })
-            } else {
-              console.log(`获取用户登录态失败！${res.errMsg}`);
-            }
+    wx.authorize({
+      scope: 'scope.userInfo',
+      success() {
+        wx.checkSession({
+          fail: function () {
+            wx.login({
+              success: res => {
+                if (res.code) {
+                  wx.request({
+                    url: `${host}/user/cert`,
+                    data: {
+                      code: res.code
+                    },
+                    success: res => {
+                      wx.setStorage({
+                        key: 'loginInfo',
+                        data: res.data.session,
+                      })
+                    },
+                  })
+                } else {
+                  console.log(`获取用户登录态失败！${res.errMsg}`);
+                }
+              }
+            });
           }
         });
-      },
-      complete: function () {
         wx.getUserInfo({
-          withCredentials: true,
           lang: 'zh_CN',
           success: res => {
             const { nickName, avatarUrl } = res.userInfo;
-            app.globalData.user = { ...app.globalData.user, nickName, avatarUrl };
+            that.globalData.user = { ...that.globalData.user, nickName, avatarUrl };
           }
         });
-      },
+      }
     });
   },
   globalData: {
     user: {},
-    host: 'http://101.132.181.121:10080'
+    host: 'http://localhost:8090'
   }
 })

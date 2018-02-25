@@ -8,7 +8,7 @@
   <text class='keyword'>婚礼地点</text>
   <text>，参加我们的婚礼。</text>
 </view>
-<view wx:if='{{isAccept===null}}'>
+<view wx:if='{{isAccept==undefined}}'>
   <text>确认来参加婚礼？</text>
   <button size='mini' type='primary' bindtap='joinWedding' data-value='{{true}}'>能来</button>
   <button size='mini' type='warn' bindtap='joinWedding' data-value='{{false}}'>不能来</button>
