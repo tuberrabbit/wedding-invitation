@@ -27,8 +27,8 @@ Page({
       data: {
         user: { ...user, guest }
       },
-      success: data => {
-        if (data.created) {
+      success: res => {
+        if (res.data.created) {
           toInvitation(guest);
         }
       }
@@ -41,9 +41,9 @@ Page({
     if (openId) {
       wx.request({
         url: `${host}/user/${openId}`,
-        success: data => {
-          if (data) {
-            app.globalData.user = { ...user, ...data };
+        success: res => {
+          if (res.data.user) {
+            app.globalData.user = { ...user, ...res.data.user };
             toInvitation(guest);
           }
         }

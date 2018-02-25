@@ -42,8 +42,8 @@ Page({
       url: `${host}/wishes`,
       method: 'POST',
       data: { openId, content },
-      success: data => {
-        if (data.created) {
+      success: res => {
+        if (res.data.created) {
           that.setData({
             wishes: ''
           });

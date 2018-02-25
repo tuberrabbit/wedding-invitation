@@ -19,8 +19,8 @@ App({
                 data: {
                   code: res.code
                 },
-                success: data => {
-                  console.log(data);
+                success: res => {
+                  console.log(res.data);
                 },
               })
             } else {
