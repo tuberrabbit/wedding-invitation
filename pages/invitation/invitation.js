@@ -41,7 +41,9 @@ Page({
     wx.request({
       url: `${host}/wishes`,
       method: 'POST',
-      data: { openId, content },
+      data: {
+        wishes: { openId, content }
+      },
       success: res => {
         if (res.data.created) {
           that.setData({
