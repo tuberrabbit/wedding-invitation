@@ -1,21 +1,29 @@
 <!--pages/invitation/invitation.wxml-->
-<view>
-  <text>尊敬的</text>
-  <text class='keyword'>{{guest}}</text>
-  <text>先生，这是一份婚礼邀请函。我们诚挚地邀请您于</text>
-  <text class='keyword'>几月几号（农历几月初几）几点</text>
-  <text>，在</text>
-  <text class='keyword'>婚礼地点</text>
-  <text>，参加我们的婚礼。</text>
-</view>
-<view wx:if='{{isAccept==undefined}}'>
-  <text>确认来参加婚礼？</text>
-  <button size='mini' type='primary' bindtap='joinWedding' data-value='{{true}}'>能来</button>
-  <button size='mini' type='warn' bindtap='joinWedding' data-value='{{false}}'>不能来</button>
-</view>
-<view>
-  <button bindtap='navigateToWedding'>一键导航</button>
-</view>
-<view>
-  <input value='{{wishes}}' placeholder='一句祝福语，带你上微信墙' bindinput='updateWishes' confirm-type='ok' bindconfirm='submitWishes' />
+<view class='page'>
+  <image class='background' src='../../assets/background.png' mode='widthFix'></image>
+  <view class='guest'>{{guest}}</view>
+  <view class='info date'>
+    <view class='title'>时间</view>
+    <view class='content'>
+      <view>2018-03-03 10:05</view>
+      <view>（农历几月初几）</view>
+    </view>
+  </view>
+  <view class='info address'>
+    <view class='title'>地点</view>
+    <view class='content'>
+      <text class='detail'>后双盆村18号</text>
+      <button size='mini' type='primary' bindtap='navigateToWedding'>一键导航</button>
+    </view>
+  </view>
+  <view class='group'>
+    <view class='join' wx:if='{{isAccept==undefined}}'>
+      <text>确认来参加婚礼？</text>
+      <button class='accept' size='mini' type='primary' bindtap='joinWedding' data-value='{{true}}'>能来</button>
+      <button class='reject' size='mini' type='warn' bindtap='joinWedding' data-value='{{false}}'>不能来</button>
+    </view>
+    <view class='wishes'>
+      <input value='{{wishes}}' placeholder='一句祝福语，带你上微信墙' bindinput='updateWishes' confirm-type='ok' bindconfirm='submitWishes' />
+    </view>
+  </view>
 </view>

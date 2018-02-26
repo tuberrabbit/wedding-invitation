@@ -1,7 +1,77 @@
 /* pages/invitation/invitation.wxss */
 
-.keyword {
+.page {
+  position: relative;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+.guest {
+  position: absolute;
+  top: 1280rpx;
+  left: 0;
+  right: 0;
+  text-align: center;
   font-size: 24px;
   font-weight: 600;
-  color: red; /* 粉色系的婚庆红色*/
+  color: #2faff7;
+}
+
+.info {
+  position: absolute;
+  left: 160rpx;
+  display: flex;
+  color: #a50340;
+}
+
+.date {
+  top: 1490rpx;
+}
+
+.address {
+  top: 1610rpx;
+}
+
+.title {
+  position: relative;
+  top: 3px;
+  font-size: 16px;
+}
+
+.content {
+  margin-left: 5px;
+  font-size: 20px;
+}
+
+.detail {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 5px;
+}
+
+.group {
+  position: absolute;
+  top: 1700rpx;
+  left: 0;
+  width: 100%;
+}
+
+.join {
+  margin-left: 50px;
+  margin-bottom: 10px;
+}
+
+.reject {
+  margin-left: 5px;
+}
+
+.wishes {
+  margin-left: 50px;
+  margin-right: 30px;
 }
