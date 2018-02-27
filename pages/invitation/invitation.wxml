@@ -3,18 +3,12 @@
   <image class='background' src='../../assets/background.png' mode='widthFix'></image>
   <view class='guest'>{{guest}}</view>
   <view class='info date'>
-    <view class='title'>时间</view>
-    <view class='content'>
-      <view>2018-03-03 10:05</view>
-      <view>（农历几月初几）</view>
-    </view>
+    <view>2018-09-24 10:30</view>
+    <view class='time'>(农历八月十五)</view>
   </view>
   <view class='info address'>
-    <view class='title'>地点</view>
-    <view class='content'>
-      <text class='detail'>后双盆村18号</text>
-      <button size='mini' type='primary' bindtap='navigateToWedding'>一键导航</button>
-    </view>
+    <text class='detail'>后双盆村18号</text>
+    <button size='mini' type='primary' bindtap='navigateToWedding'>一键导航</button>
   </view>
   <view class='group'>
     <view class='join' wx:if='{{isAccept==undefined}}'>

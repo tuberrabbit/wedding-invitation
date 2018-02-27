@@ -25,39 +25,33 @@
 
 .info {
   position: absolute;
-  left: 160rpx;
-  display: flex;
+  left: 260rpx;
   color: #a50340;
-}
-
-.date {
-  top: 1490rpx;
-}
-
-.address {
-  top: 1610rpx;
-}
-
-.title {
-  position: relative;
-  top: 3px;
+  margin-left: 5px;
   font-size: 16px;
 }
 
-.content {
-  margin-left: 5px;
-  font-size: 20px;
+.date {
+  top: 1565rpx;
+}
+
+.time {
+  margin-top: -8rpx;
+}
+
+.address {
+  top: 1650rpx;
 }
 
 .detail {
   display: inline-block;
   vertical-align: top;
-  margin-right: 5px;
+  margin-right: 7px;
 }
 
 .group {
   position: absolute;
-  top: 1700rpx;
+  top: 1750rpx;
   left: 0;
   width: 100%;
 }
