@@ -12,6 +12,22 @@
   z-index: -1;
 }
 
+.photoContainer {
+  position: absolute;
+  top: 44px;
+  left: 56px;
+  width: 300px;
+  height: 392px;
+  overflow: hidden;
+}
+
+.photo {
+  position: relative;
+  top: -40px;
+  left: 0;
+  width: 300px;
+}
+
 .guest {
   position: absolute;
   top: 1280rpx;
@@ -47,6 +63,7 @@
   display: inline-block;
   vertical-align: top;
   margin-right: 7px;
+  border-bottom: 1px currentColor solid;
 }
 
 .group {
@@ -57,15 +74,19 @@
 }
 
 .join {
-  margin-left: 50px;
-  margin-bottom: 10px;
+  text-align: center;
 }
 
-.reject {
-  margin-left: 5px;
+.button {
+  width: 85px;
+}
+
+.accept {
+  margin-right: 40px;
 }
 
 .wishes {
   margin-left: 50px;
   margin-right: 30px;
+  font-size: 16px;
 }

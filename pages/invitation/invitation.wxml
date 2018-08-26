@@ -1,23 +1,24 @@
 <!--pages/invitation/invitation.wxml-->
 <view class='page'>
   <image class='background' src='../../assets/background.png' mode='widthFix'></image>
+  <view class='photoContainer'>
+  <image class='photo' src='../../assets/photo.jpg' mode='widthFix'></image>
+  </view>
   <view class='guest'>{{guest}}</view>
   <view class='info date'>
     <view>2018-09-24 10:30</view>
     <view class='time'>(农历八月十五)</view>
   </view>
   <view class='info address'>
-    <text class='detail'>后双盆村18号</text>
-    <button size='mini' type='primary' bindtap='navigateToWedding'>一键导航</button>
+    <text class='detail' bindtap='navigateToWedding'>后双盆村18号</text>
   </view>
   <view class='group'>
     <view class='join' wx:if='{{isAccept==undefined}}'>
-      <text>确认来参加婚礼？</text>
-      <button class='accept' size='mini' type='primary' bindtap='joinWedding' data-value='{{true}}'>能来</button>
-      <button class='reject' size='mini' type='warn' bindtap='joinWedding' data-value='{{false}}'>不能来</button>
+      <button class='button accept' size='mini' type='primary' bindtap='joinWedding' data-value='{{true}}'>应邀</button>
+      <button class='button reject' size='mini' type='warn' bindtap='joinWedding' data-value='{{false}}'>婉拒</button>
     </view>
     <view class='wishes'>
-      <input value='{{wishes}}' placeholder='一句祝福语，带你上微信墙' bindinput='updateWishes' confirm-type='ok' bindconfirm='submitWishes' />
+      <input value='{{wishes}}' placeholder='送上一句祝福的话。' bindinput='updateWishes' confirm-type='ok' bindconfirm='submitWishes' />
     </view>
   </view>
 </view>

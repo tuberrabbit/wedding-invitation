@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class='page'>
-  <text class='title'>尊敬的：</text>
+  <text class='title'>请确认来宾身份：</text>
   <input class='guest' value='{{guest}}' bindinput='updateGuest' focus='true' />
-  <view class='tips'>提示：身份一经确认，不可更改。</view>
+  <view class='tips'>提示：身份定制，转发无效。</view>
   <button type='warn' bindtap='confirm' disabled='{{!guest}}'>确认</button>
 </view>
