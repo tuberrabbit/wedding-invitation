@@ -19,7 +19,7 @@ Page({
     wx.openLocation({
       latitude: location.latitude,
       longitude: location.longitude,
-      name: '婚礼现场',
+      name: '喝酒吃肉',
       address: '后双盆18号'
     })
   },
@@ -36,15 +36,12 @@ Page({
       return;
     }
     const that = this;
-    const loginInfo = wx.getStorageSync('loginInfo');
-    const { host } = app.globalData;
+    const { host, user } = app.globalData;
     wx.request({
       url: `${host}/wishes`,
       method: 'POST',
-      header: {
-        authentication: loginInfo
-      },
       data: {
+        name: user.name,
         wishes: { content }
       },
       success: res => {
@@ -68,18 +65,13 @@ Page({
     this.setData({
       isAccept: evt.target.dataset.value
     });
-    const loginInfo = wx.getStorageSync('loginInfo');
-    const { host } = app.globalData;
+    const { host, user } = app.globalData;
     wx.request({
       url: `${host}/user`,
       method: 'PATCH',
-      header: {
-        authentication: loginInfo
-      },
       data: {
-        user: {
-          isAccept: evt.target.dataset.value
-        }
+        name: user.name,
+        isAccept: evt.target.dataset.value
       }
     });
   },
@@ -87,10 +79,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const guest = options.guest;
     const { user } = app.globalData;
-    const { isAccept } = user;
-    this.setData({ guest, isAccept });
+    const { isAccept, name } = user;
+    this.setData({ name, isAccept });
   },
 
   /**

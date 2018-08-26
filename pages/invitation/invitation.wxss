@@ -30,13 +30,13 @@
 
 .guest {
   position: absolute;
-  top: 1280rpx;
+  top: 690px;
   left: 0;
   right: 0;
   text-align: center;
-  font-size: 24px;
+  font-size: 32px;
   font-weight: 600;
-  color: #2faff7;
+  color: #a50340;
 }
 
 .info {

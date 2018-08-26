@@ -4,7 +4,7 @@
   <view class='photoContainer'>
   <image class='photo' src='../../assets/photo.jpg' mode='widthFix'></image>
   </view>
-  <view class='guest'>{{guest}}</view>
+  <view class='guest'>{{name}}</view>
   <view class='info date'>
     <view>2018-09-24 10:30</view>
     <view class='time'>(农历八月十五)</view>
@@ -13,9 +13,9 @@
     <text class='detail' bindtap='navigateToWedding'>后双盆村18号</text>
   </view>
   <view class='group'>
-    <view class='join' wx:if='{{isAccept==undefined}}'>
-      <button class='button accept' size='mini' type='primary' bindtap='joinWedding' data-value='{{true}}'>应邀</button>
-      <button class='button reject' size='mini' type='warn' bindtap='joinWedding' data-value='{{false}}'>婉拒</button>
+    <view class='join'>
+      <button class='button accept' size='mini' type='{isAccept==true?primary:default}' bindtap='joinWedding' data-value='{{true}}'>应邀</button>
+      <button class='button reject' size='mini' type='{isAccept==false?warn:default}' bindtap='joinWedding' data-value='{{false}}'>婉拒</button>
     </view>
     <view class='wishes'>
       <input value='{{wishes}}' placeholder='送上一句祝福的话。' bindinput='updateWishes' confirm-type='ok' bindconfirm='submitWishes' />
